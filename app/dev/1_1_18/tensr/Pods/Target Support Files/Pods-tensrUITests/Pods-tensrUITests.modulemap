@@ -1,0 +1,6 @@
+framework module Pods_tensrUITests {
+  umbrella header "Pods-tensrUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

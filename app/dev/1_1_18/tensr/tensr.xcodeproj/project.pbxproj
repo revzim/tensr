@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01978629D85F5BBA19A58687 /* Pods_tensrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10690B2A11E5206EF4294043 /* Pods_tensrTests.framework */; };
+		051DAEBC230215F1003B69F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DAEBB230215F1003B69F8 /* AppDelegate.swift */; };
+		051DAEBE230215F1003B69F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DAEBD230215F1003B69F8 /* SceneDelegate.swift */; };
+		051DAEC1230215F1003B69F8 /* tensr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 051DAEBF230215F1003B69F8 /* tensr.xcdatamodeld */; };
+		051DAEC3230215F1003B69F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DAEC2230215F1003B69F8 /* ContentView.swift */; };
+		051DAEC5230215F4003B69F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051DAEC4230215F4003B69F8 /* Assets.xcassets */; };
+		051DAEC8230215F4003B69F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051DAEC7230215F4003B69F8 /* Preview Assets.xcassets */; };
+		051DAECB230215F4003B69F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 051DAEC9230215F4003B69F8 /* LaunchScreen.storyboard */; };
+		051DAED6230215F4003B69F8 /* tensrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DAED5230215F4003B69F8 /* tensrTests.swift */; };
+		051DAEE1230215F4003B69F8 /* tensrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051DAEE0230215F4003B69F8 /* tensrUITests.swift */; };
+		0525E0862303131C0068A4F2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0525E0852303131C0068A4F2 /* Helpers.swift */; };
+		0525E08823031BAD0068A4F2 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0525E08723031BAD0068A4F2 /* ProgressBar.swift */; };
+		05B768222302621300818DEF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B768212302621300818DEF /* ImagePicker.swift */; };
+		05DA9971230476550040C64A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA9970230476550040C64A /* SettingsView.swift */; };
+		05DA997523048B0B0040C64A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DA997423048B0B0040C64A /* Settings.swift */; };
+		E19907F5670F5C51353163C1 /* Pods_tensrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FC6460B4395DBD906C0B4B /* Pods_tensrUITests.framework */; };
+		F8084C77546857B3BB5CE030 /* Pods_tensr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAE6EBEB11A6DFBD72ECDA8 /* Pods_tensr.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		051DAED2230215F4003B69F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 051DAEB0230215F1003B69F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 051DAEB7230215F1003B69F8;
+			remoteInfo = tensr;
+		};
+		051DAEDD230215F4003B69F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 051DAEB0230215F1003B69F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 051DAEB7230215F1003B69F8;
+			remoteInfo = tensr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		051DAEB8230215F1003B69F8 /* tensr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tensr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		051DAEBB230215F1003B69F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		051DAEBD230215F1003B69F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		051DAEC0230215F1003B69F8 /* tensr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tensr.xcdatamodel; sourceTree = "<group>"; };
+		051DAEC2230215F1003B69F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		051DAEC4230215F4003B69F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		051DAEC7230215F4003B69F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		051DAECA230215F4003B69F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		051DAECC230215F4003B69F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		051DAED1230215F4003B69F8 /* tensrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tensrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		051DAED5230215F4003B69F8 /* tensrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tensrTests.swift; sourceTree = "<group>"; };
+		051DAED7230215F4003B69F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		051DAEDC230215F4003B69F8 /* tensrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tensrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		051DAEE0230215F4003B69F8 /* tensrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tensrUITests.swift; sourceTree = "<group>"; };
+		051DAEE2230215F4003B69F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0525E0852303131C0068A4F2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		0525E08723031BAD0068A4F2 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		05B768212302621300818DEF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		05DA9970230476550040C64A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		05DA997423048B0B0040C64A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		10690B2A11E5206EF4294043 /* Pods_tensrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tensrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F4F120BEF2B119AEAF983E /* Pods-tensr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tensr.release.xcconfig"; path = "Target Support Files/Pods-tensr/Pods-tensr.release.xcconfig"; sourceTree = "<group>"; };
+		14FC6460B4395DBD906C0B4B /* Pods_tensrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tensrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24E64E5BA979194DE59AC4BD /* Pods-tensrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tensrTests.debug.xcconfig"; path = "Target Support Files/Pods-tensrTests/Pods-tensrTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4330792F23E4CFCBB7E2AB80 /* Pods-tensrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tensrUITests.debug.xcconfig"; path = "Target Support Files/Pods-tensrUITests/Pods-tensrUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5E38BF9C1FB88AA299EAC228 /* Pods-tensrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tensrTests.release.xcconfig"; path = "Target Support Files/Pods-tensrTests/Pods-tensrTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC684A43897403E9736ACCD2 /* Pods-tensr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tensr.debug.xcconfig"; path = "Target Support Files/Pods-tensr/Pods-tensr.debug.xcconfig"; sourceTree = "<group>"; };
+		CFAE6EBEB11A6DFBD72ECDA8 /* Pods_tensr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tensr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F443B04C676814F5BD04CE2F /* Pods-tensrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tensrUITests.release.xcconfig"; path = "Target Support Files/Pods-tensrUITests/Pods-tensrUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		051DAEB5230215F1003B69F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8084C77546857B3BB5CE030 /* Pods_tensr.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DAECE230215F4003B69F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01978629D85F5BBA19A58687 /* Pods_tensrTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DAED9230215F4003B69F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19907F5670F5C51353163C1 /* Pods_tensrUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		051DAEAF230215F1003B69F8 = {
+			isa = PBXGroup;
+			children = (
+				051DAEBA230215F1003B69F8 /* tensr */,
+				051DAED4230215F4003B69F8 /* tensrTests */,
+				051DAEDF230215F4003B69F8 /* tensrUITests */,
+				051DAEB9230215F1003B69F8 /* Products */,
+				7F732F8C255F45A695073279 /* Pods */,
+				39B27174273F1BD53FCF9E4D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		051DAEB9230215F1003B69F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				051DAEB8230215F1003B69F8 /* tensr.app */,
+				051DAED1230215F4003B69F8 /* tensrTests.xctest */,
+				051DAEDC230215F4003B69F8 /* tensrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		051DAEBA230215F1003B69F8 /* tensr */ = {
+			isa = PBXGroup;
+			children = (
+				051DAEBB230215F1003B69F8 /* AppDelegate.swift */,
+				051DAEBD230215F1003B69F8 /* SceneDelegate.swift */,
+				051DAEC2230215F1003B69F8 /* ContentView.swift */,
+				05DA9970230476550040C64A /* SettingsView.swift */,
+				051DAEC4230215F4003B69F8 /* Assets.xcassets */,
+				051DAEC9230215F4003B69F8 /* LaunchScreen.storyboard */,
+				051DAECC230215F4003B69F8 /* Info.plist */,
+				051DAEBF230215F1003B69F8 /* tensr.xcdatamodeld */,
+				051DAEC6230215F4003B69F8 /* Preview Content */,
+				05B768212302621300818DEF /* ImagePicker.swift */,
+				0525E0852303131C0068A4F2 /* Helpers.swift */,
+				0525E08723031BAD0068A4F2 /* ProgressBar.swift */,
+				05DA997423048B0B0040C64A /* Settings.swift */,
+			);
+			path = tensr;
+			sourceTree = "<group>";
+		};
+		051DAEC6230215F4003B69F8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				051DAEC7230215F4003B69F8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		051DAED4230215F4003B69F8 /* tensrTests */ = {
+			isa = PBXGroup;
+			children = (
+				051DAED5230215F4003B69F8 /* tensrTests.swift */,
+				051DAED7230215F4003B69F8 /* Info.plist */,
+			);
+			path = tensrTests;
+			sourceTree = "<group>";
+		};
+		051DAEDF230215F4003B69F8 /* tensrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				051DAEE0230215F4003B69F8 /* tensrUITests.swift */,
+				051DAEE2230215F4003B69F8 /* Info.plist */,
+			);
+			path = tensrUITests;
+			sourceTree = "<group>";
+		};
+		39B27174273F1BD53FCF9E4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFAE6EBEB11A6DFBD72ECDA8 /* Pods_tensr.framework */,
+				10690B2A11E5206EF4294043 /* Pods_tensrTests.framework */,
+				14FC6460B4395DBD906C0B4B /* Pods_tensrUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F732F8C255F45A695073279 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC684A43897403E9736ACCD2 /* Pods-tensr.debug.xcconfig */,
+				10F4F120BEF2B119AEAF983E /* Pods-tensr.release.xcconfig */,
+				24E64E5BA979194DE59AC4BD /* Pods-tensrTests.debug.xcconfig */,
+				5E38BF9C1FB88AA299EAC228 /* Pods-tensrTests.release.xcconfig */,
+				4330792F23E4CFCBB7E2AB80 /* Pods-tensrUITests.debug.xcconfig */,
+				F443B04C676814F5BD04CE2F /* Pods-tensrUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		051DAEB7230215F1003B69F8 /* tensr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 051DAEE5230215F4003B69F8 /* Build configuration list for PBXNativeTarget "tensr" */;
+			buildPhases = (
+				E04A2064028745DCAFC82355 /* [CP] Check Pods Manifest.lock */,
+				051DAEB4230215F1003B69F8 /* Sources */,
+				051DAEB5230215F1003B69F8 /* Frameworks */,
+				051DAEB6230215F1003B69F8 /* Resources */,
+				3D6AE1D54C47C48C0A61E103 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tensr;
+			productName = tensr;
+			productReference = 051DAEB8230215F1003B69F8 /* tensr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		051DAED0230215F4003B69F8 /* tensrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 051DAEE8230215F4003B69F8 /* Build configuration list for PBXNativeTarget "tensrTests" */;
+			buildPhases = (
+				9CCE0CF7ADF1957E0A7ED144 /* [CP] Check Pods Manifest.lock */,
+				051DAECD230215F4003B69F8 /* Sources */,
+				051DAECE230215F4003B69F8 /* Frameworks */,
+				051DAECF230215F4003B69F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				051DAED3230215F4003B69F8 /* PBXTargetDependency */,
+			);
+			name = tensrTests;
+			productName = tensrTests;
+			productReference = 051DAED1230215F4003B69F8 /* tensrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		051DAEDB230215F4003B69F8 /* tensrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 051DAEEB230215F4003B69F8 /* Build configuration list for PBXNativeTarget "tensrUITests" */;
+			buildPhases = (
+				5370E5F96DE5ED15253CF2D7 /* [CP] Check Pods Manifest.lock */,
+				051DAED8230215F4003B69F8 /* Sources */,
+				051DAED9230215F4003B69F8 /* Frameworks */,
+				051DAEDA230215F4003B69F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				051DAEDE230215F4003B69F8 /* PBXTargetDependency */,
+			);
+			name = tensrUITests;
+			productName = tensrUITests;
+			productReference = 051DAEDC230215F4003B69F8 /* tensrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		051DAEB0230215F1003B69F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = azim;
+				TargetAttributes = {
+					051DAEB7230215F1003B69F8 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					051DAED0230215F4003B69F8 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 051DAEB7230215F1003B69F8;
+					};
+					051DAEDB230215F4003B69F8 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 051DAEB7230215F1003B69F8;
+					};
+				};
+			};
+			buildConfigurationList = 051DAEB3230215F1003B69F8 /* Build configuration list for PBXProject "tensr" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 051DAEAF230215F1003B69F8;
+			productRefGroup = 051DAEB9230215F1003B69F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				051DAEB7230215F1003B69F8 /* tensr */,
+				051DAED0230215F4003B69F8 /* tensrTests */,
+				051DAEDB230215F4003B69F8 /* tensrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		051DAEB6230215F1003B69F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				051DAECB230215F4003B69F8 /* LaunchScreen.storyboard in Resources */,
+				051DAEC8230215F4003B69F8 /* Preview Assets.xcassets in Resources */,
+				051DAEC5230215F4003B69F8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DAECF230215F4003B69F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DAEDA230215F4003B69F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D6AE1D54C47C48C0A61E103 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tensr/Pods-tensr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tensr/Pods-tensr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tensr/Pods-tensr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5370E5F96DE5ED15253CF2D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tensrUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CCE0CF7ADF1957E0A7ED144 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tensrTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E04A2064028745DCAFC82355 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tensr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		051DAEB4230215F1003B69F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				051DAEBC230215F1003B69F8 /* AppDelegate.swift in Sources */,
+				05DA9971230476550040C64A /* SettingsView.swift in Sources */,
+				0525E0862303131C0068A4F2 /* Helpers.swift in Sources */,
+				051DAEBE230215F1003B69F8 /* SceneDelegate.swift in Sources */,
+				05B768222302621300818DEF /* ImagePicker.swift in Sources */,
+				051DAEC3230215F1003B69F8 /* ContentView.swift in Sources */,
+				05DA997523048B0B0040C64A /* Settings.swift in Sources */,
+				051DAEC1230215F1003B69F8 /* tensr.xcdatamodeld in Sources */,
+				0525E08823031BAD0068A4F2 /* ProgressBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DAECD230215F4003B69F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				051DAED6230215F4003B69F8 /* tensrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		051DAED8230215F4003B69F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				051DAEE1230215F4003B69F8 /* tensrUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		051DAED3230215F4003B69F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 051DAEB7230215F1003B69F8 /* tensr */;
+			targetProxy = 051DAED2230215F4003B69F8 /* PBXContainerItemProxy */;
+		};
+		051DAEDE230215F4003B69F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 051DAEB7230215F1003B69F8 /* tensr */;
+			targetProxy = 051DAEDD230215F4003B69F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		051DAEC9230215F4003B69F8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				051DAECA230215F4003B69F8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		051DAEE3230215F4003B69F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		051DAEE4230215F4003B69F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		051DAEE6230215F4003B69F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC684A43897403E9736ACCD2 /* Pods-tensr.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1.18;
+				DEVELOPMENT_ASSET_PATHS = "tensr/Preview\\ Content";
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tensr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azim.tensr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		051DAEE7230215F4003B69F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10F4F120BEF2B119AEAF983E /* Pods-tensr.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1.18;
+				DEVELOPMENT_ASSET_PATHS = "tensr/Preview\\ Content";
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tensr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azim.tensr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		051DAEE9230215F4003B69F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24E64E5BA979194DE59AC4BD /* Pods-tensrTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				INFOPLIST_FILE = tensrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.azim.tensrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tensr.app/tensr";
+			};
+			name = Debug;
+		};
+		051DAEEA230215F4003B69F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E38BF9C1FB88AA299EAC228 /* Pods-tensrTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				INFOPLIST_FILE = tensrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.azim.tensrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tensr.app/tensr";
+			};
+			name = Release;
+		};
+		051DAEEC230215F4003B69F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4330792F23E4CFCBB7E2AB80 /* Pods-tensrUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				INFOPLIST_FILE = tensrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.azim.tensrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tensr;
+			};
+			name = Debug;
+		};
+		051DAEED230215F4003B69F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F443B04C676814F5BD04CE2F /* Pods-tensrUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				INFOPLIST_FILE = tensrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.azim.tensrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tensr;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		051DAEB3230215F1003B69F8 /* Build configuration list for PBXProject "tensr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				051DAEE3230215F4003B69F8 /* Debug */,
+				051DAEE4230215F4003B69F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		051DAEE5230215F4003B69F8 /* Build configuration list for PBXNativeTarget "tensr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				051DAEE6230215F4003B69F8 /* Debug */,
+				051DAEE7230215F4003B69F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		051DAEE8230215F4003B69F8 /* Build configuration list for PBXNativeTarget "tensrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				051DAEE9230215F4003B69F8 /* Debug */,
+				051DAEEA230215F4003B69F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		051DAEEB230215F4003B69F8 /* Build configuration list for PBXNativeTarget "tensrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				051DAEEC230215F4003B69F8 /* Debug */,
+				051DAEED230215F4003B69F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		051DAEBF230215F1003B69F8 /* tensr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				051DAEC0230215F1003B69F8 /* tensr.xcdatamodel */,
+			);
+			currentVersion = 051DAEC0230215F1003B69F8 /* tensr.xcdatamodel */;
+			path = tensr.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 051DAEB0230215F1003B69F8 /* Project object */;
+}

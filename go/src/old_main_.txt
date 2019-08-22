@@ -1,0 +1,184 @@
+// ANDY ZIMMELMAN 2019
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"io"
+	"io/ioutil"
+	"flag"
+	"sort"
+	"strings"
+	"bytes"
+	
+	"github.com/julienschmidt/httprouter"
+	tf "github.com/tensorflow/tensorflow/tensorflow/go"
+)
+
+type ClassificationResult struct {
+	Filename string        `json:"filename"`
+	Labels   []LabelResult `json:"labels"`
+}
+
+type LabelResult struct {
+	Label       string  `json:"label"`
+	Probability float32 `json:"probability"`
+}
+
+type ProbabilityLabels []LabelResult
+
+func (lbls ProbabilityLabels) Len() int           { return len(lbls) }
+func (lbls ProbabilityLabels) Swap(i, j int)      { lbls[i], lbls[j] = lbls[j], lbls[i] }
+func (lbls ProbabilityLabels) Less(i, j int) bool { return lbls[i].Probability > lbls[j].Probability }
+
+var (
+	// GRAPH MODEL
+	graphModel   			*tf.Graph
+
+	// SESSION MODEL
+	sessionModel			*tf.Session
+	
+	// GRAPH LABELS
+	labels 						[]string
+
+	// FLAG VARS
+	graphFlag 	 			string
+	labelsFlag   			string
+	inputNodeFlag 		string
+	outputNodeFlag 		string
+	labelsCountFlag 	int
+)
+
+func init() {
+	// FLAGS
+	flag.StringVar(&graphFlag,			 "graph",  "model/graph.pb",   "path to TF model output graph")
+	flag.StringVar(&labelsFlag, 		 "labels", "model/labels.txt", "path to TF model output labels")
+	flag.StringVar(&inputNodeFlag,   "input",  "input", 					 "model input node name. model dependent.")
+	flag.StringVar(&outputNodeFlag,  "output", "output", 				   "model output node name. model dependent.")
+	flag.IntVar(   &labelsCountFlag, "count",  5, 								 "amount of labels returned to the client. default=5")
+}
+
+func main() {
+	flag.Parse()
+	if err := loadModel(); err != nil {
+		log.Fatal(err)
+		return
+	}
+
+	r := httprouter.New()
+
+	r.POST("/classify", classifyHandler)
+
+	fmt.Println("Listening on port 8080...")
+	log.Fatal(http.ListenAndServe(":8080", r))
+}
+
+func loadModel() error {
+	// LOAD MODEL
+	model, err := ioutil.ReadFile(graphFlag)
+	if err != nil {
+		return err
+	}
+
+	// GENERATE GRAPH MODEL FROM IMPORT
+	graphModel = tf.NewGraph()
+	if err := graphModel.Import(model, ""); err != nil {
+		return err
+	}
+
+	// GENERATE NEW SESSION WITH GENERATED GRAPH MODEL
+	sessionModel, err = tf.NewSession(graphModel, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// LOAD LABELS
+	return loadLabels(labelsFlag)
+}
+
+func loadLabels(labelsFileName string) error {
+	// LOAD LABELS
+	labelsFile, err := os.Open(labelsFileName)
+	if err != nil {
+		return err
+	}
+
+	defer labelsFile.Close()
+	
+	scanner := bufio.NewScanner(labelsFile)
+
+	// NEW LINE DEFINE NEW LABEL
+	for scanner.Scan() {
+		labels = append(labels, scanner.Text())
+	}
+	if err := scanner.Err(); err != nil {
+		return err
+	}
+	return nil
+}
+
+func classifyHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	// IMAGE FROM POST REQUEST
+	imageFile, header, err := r.FormFile("file")
+
+	// FILNAME & EXTENSION JPG/PNG
+	imageName := strings.Split(header.Filename, ".")
+	if err != nil {
+		responseError(w, "Could not read image", http.StatusBadRequest)
+		return
+	}
+
+	defer imageFile.Close()
+
+	var imageBuffer bytes.Buffer
+
+	// IMAGE DATA COPIED TO BUFFER
+	io.Copy(&imageBuffer, imageFile)
+
+	// MAKE TENSOR
+	tensor, err := generateTensorFromImage(&imageBuffer, imageName[:1][0])
+	if err != nil {
+		log.Printf("INVALID IMAGE")
+		responseError(w, "Invalid image", http.StatusBadRequest)
+		return
+	}
+
+	// EXECUTE SESSION AND RUN INFERENCE
+	output, err := sessionModel.Run(
+		map[tf.Output]*tf.Tensor{
+			graphModel.Operation(inputNodeFlag).Output(0): tensor,
+		},
+		[]tf.Output{
+			graphModel.Operation(outputNodeFlag).Output(0),
+		},
+		nil)
+	if err != nil {
+		responseError(w, "Could not run inference", http.StatusInternalServerError)
+		return
+	}
+
+	// RETURN BEST LABELS FROM CLASSIFICATION
+	responseJSON(w, ClassificationResult{
+		Filename: header.Filename,
+		Labels:   getBestLabels(output[0].Value().([][]float32)[0], labelsCountFlag),
+	})
+}
+
+
+func getBestLabels(probabilities []float32, amount int) []LabelResult {
+	// GENERATE LABELS & PROBABILITY LIST
+	var results []LabelResult
+	for i, p := range probabilities {
+		if i >= len(labels) {
+			break
+		}
+		results = append(results, LabelResult{Label: labels[i], Probability: p})
+	}
+	// SORT RESULTS BY PROBABILITY SCORE
+	sort.Sort(ProbabilityLabels(results))
+	
+	return results[:amount]
+}

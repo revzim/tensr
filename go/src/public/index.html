@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script type="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+		<style>
+			div.form-group > label, input, h1, table, label, span {
+				 color: #428bca!important;
+			}
+			div.form-group > label:hover, {
+				cursor: pointer;
+			}
+			* {
+				background-color: #282828!important;
+			}
+
+			.btn {
+				background-color: #428bca!important;
+			}
+			.card-img-top {
+				display:none;
+			}
+
+			@media {
+			  .container {
+			    width: auto;
+			  }
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="container col-lg-8 col-md-6 col-xs-6">
+			<form id="post-form" class="container text-center card" enctype="multipart/form-data">
+				<h1 class="heading">tensr</h1>
+			  <div class="form-group">
+			  	<label for="model-name">Specify the server/model name  (path to model from server graphs)</label>
+					<div class="input-group">
+
+					  <div class="input-group-prepend">
+					  	
+					    <span class="input-group-text" id="">Server/Model name</span>
+					  </div>
+					  <input type="text" class="form-control" id="model-name" name="model">
+					</div>
+					<br>
+					<label for="imageTest">Choose an image to upload to the server</label>
+					<div class="input-group-prepend">
+			    	
+			    	<input name="file" id="file" style="" type="file" class="form-control-file" id="imageTest" onchange="loadImagePreview(this);">
+			    	
+			    </div>
+			    <img class="card-img-top rounded" src="" alt="Your image">
+			  </div>
+			  <button id="submit-btn" class="btn btn-primary">Upload</button>
+			</form>
+			<table id="results-table" class="table table-sm table-dark">
+			  <thead>
+			    <tr class="">
+			      <th scope="col">{{ .LabelText }}</th>
+			      <th scope="col">{{ .ProbabilityText }}</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+		</div>
+	</body>
+	<script>
+
+		// var phonyResponse = {"filename":"rot_poodle.jpg","labels":[{"label":"dandelion","probability":0.6983848},{"label":"roses","probability":0.140432},{"label":"tulips","probability":0.06693459},{"label":"daisy","probability":0.058660854},{"label":"sunflowers","probability":0.03558771}]};
+
+		$("#submit-btn").on("click", function(event) {
+			event.preventDefault();
+			$('#results-table tbody tr').remove()
+			var modelName = $("#model-name").val() ? $("#model-name").val() : "model";
+			var url = "/classify/" + modelName;
+			var xhr = new XMLHttpRequest();
+
+			// PROCESS COMPLETED REQUEST
+			xhr.onload = function () {
+
+				// Process our return data
+				if (xhr.status >= 200 && xhr.status < 300) {
+					// Runs when the request is successful
+					console.log("Okay: ", xhr.responseText);
+					var data = JSON.parse(xhr.responseText);
+					var table = $('#results-table').addClass('response');
+					for (var i = 0; i < data.labels.length; i++) {
+						let row = '<tr><td>' + data.labels[i].label + '</td><td>' + data.labels[i].probability + '</td></tr>';
+						table.append(row);
+					}
+					table.append(table)
+				} else {
+					// WHEN ERROR
+					console.log("Error: ", xhr.responseText);
+				}
+
+			};
+
+		  var boundary=Math.random().toString().substr(2);
+			var formdata = new FormData();
+			formdata.append("file", $("#file")[0].files[0]);
+			formdata.append("model", $("#model-name").val());
+			xhr.open("POST", url, true);
+			xhr.send(formdata);
+			
+		});
+
+		function loadImagePreview(input) {
+		  if (input.files && input.files[0]) {
+		  	// INIT READER
+		    var reader = new FileReader();
+
+		    // ONCE IMAGE PICKED, SCALE AND FORMAT ELEMENT
+		    reader.onload = function (e) {
+		    	$('.card-img-top').addClass('mx-auto')
+		    	$('.card-img-top').addClass('d-block')
+
+		      $('.card-img-top')
+		        .attr('src', e.target.result)
+		        .width(200)
+		        .height(200);
+		    };
+		    // READ IMAGE AND DISPLAY
+		    reader.readAsDataURL(input.files[0]);
+		  }
+		}
+	</script>
+</html>
