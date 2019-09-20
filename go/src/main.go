@@ -20,18 +20,22 @@ import (
 )
 
 type ClassificationResult struct {
-	Filename string        `json:"filename"`
-	Labels   []LabelResult `json:"labels"`
+	Filename string        			`json:"filename"`
+	Labels   []LabelResult 			`json:"labels"`
 }
 
 type LabelResult struct {
-	Label       string  `json:"label"`
-	Probability float32 `json:"probability"`
+	Label       string  				`json:"label"`
+	Probability float32 				`json:"probability"`
 }
 
 type Prediction struct {
-	LabelText       string
+	LabelText       string 			
 	ProbabilityText string
+}
+
+type ModelResponse struct {
+	Models 					[]string 		`json:"models"` 
 }
 
 type ProbabilityLabels []LabelResult
@@ -53,6 +57,9 @@ var (
 
 	// names of models
 	modelNames []string
+
+	// HELPER MODEL RESPONSE JSON
+	modelResponse ModelResponse
 
 	// FLAG VARS
 	graphsFlag      string
@@ -83,6 +90,8 @@ func main() {
 	r := httprouter.New()
 
 	r.GET("/wa", ServeWebApp)
+
+	r.GET("/models", GetModels)
 
 	r.POST("/classify/:model", ClassifyHandler)
 	r.POST("/classify", ClassifyHandler)
@@ -130,6 +139,7 @@ func generateModelsAndLabels(parentDir string, graphFileName string, labelFileNa
 	i := 0
 	for key, model := range models {
 		modelNames[i] = key
+		modelResponse.Models = append(modelResponse.Models, key)
 		log.Printf(modelNames[i])
 		// log.Printf(key)
 		graphModels[key] = tf.NewGraph()
@@ -180,6 +190,10 @@ func loadFileLabels(labelsFileName string, modelName string) error {
 	}
 	graphLabels[modelName] = lbls
 	return nil
+}
+
+func GetModels(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	responseJSON(w, modelResponse)
 }
 
 func ServeWebApp(w http.ResponseWriter, r *http.Request, params httprouter.Params) {

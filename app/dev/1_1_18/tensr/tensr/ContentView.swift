@@ -19,6 +19,8 @@ struct Prediction: Encodable, Identifiable {
 
 struct ContentView: View {
     
+    @State private var showServerChangeAlert = false
+    
     @State var showImagePicker: Bool = false
     @State var image: Image? = nil
     @State var imagePicked: Bool = false
@@ -33,6 +35,7 @@ struct ContentView: View {
     @State var showPredictionScores: Bool = false
     
     @State var customURL: String = "http://192.168.1.222:8080/classify"
+    @State var customModel: String = ""
     // @State var params: [String: Any]? = nil
     
     let settingsBtnCfg:UIImage.SymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 0.3, weight: .black, scale: .small)
@@ -45,22 +48,31 @@ struct ContentView: View {
                 // SHOW IMAGE PICKER
                 if (showImagePicker) {
                     ImagePicker(isShown: $showImagePicker, image: $image, imagePicked: $imagePicked, imageData: $imageData)
+                    
                 }
                 
                 // DATA FORM
                 Form {
-                    HStack {
-                        Text("Server: ")
-                            .font(.headline)
-                        
-                        TextField("URL", text: $customURL)
-                            .font(.subheadline)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    VStack {
+                        HStack {
+                            Text("Server: ")
+                                .font(.headline)
+                            
+                            TextField("URL", text: $customURL)
+                                .font(.subheadline)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                            
+                        }
+                        HStack {
+                            Text("Model Name: ")
+                                .font(.headline)
+                            
+                            TextField("Model", text: $customModel)
+                                .font(.subheadline)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                            
+                        }
                     }
-
-                    Button(action: (self.useCustomURL), label: {
-                        Text("Change Server")
-                    })
                     
                 }
                 
@@ -131,10 +143,7 @@ struct ContentView: View {
         }
         
     }
-    
-    func useCustomURL() {
-        _ = Alert(title: Text("Changed Server"), message: Text("Changed server from default to: \(self.customURL)"), dismissButton: .default(Text("OK")))
-    }
+
     
     func toggleUI() {
         self.image = nil
@@ -156,7 +165,12 @@ struct ContentView: View {
         self.prediction = ""
         
         // URL STRING FOR TENSORFLOW SERVER
-        var request = URLRequest(url: URL(string: self.customURL)!)
+        var requestURL =  self.customURL
+        if self.customModel != "" {
+            requestURL = "\(requestURL)/\(self.customModel)"
+        }
+        
+        var request = URLRequest(url: URL(string: requestURL)!)
         request.httpMethod = "POST"
         upload(image: imageData, to: request, params: ["": ""], uploadProgress: uploadProgress)
         

@@ -38,6 +38,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             imagePicked = true
             imageData = uiImage.pngData()
             isShown = false
+            picker.dismiss(animated: true)
             
         }
 
